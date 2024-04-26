@@ -1,12 +1,10 @@
 import streamlit as st
 from openai import OpenAI
-import hidden
+#import hidden
 import pandas as pd
 import re
 
-api_key = hidden.api_key
-
-client = OpenAI(api_key)
+client = OpenAI(api_key="")
 
 def generate_text(prompt):
     response = client.chat.completions.create(
@@ -43,7 +41,7 @@ selected_competence = st.selectbox("Välj en kompetens", list(competencies_data.
 # Load data from CSV files and store them in a dictionary
 data_by_year = {}
 for year in range(2016, 2023):
-    file_path = f"./skills_by_occupation_{year}.csv"
+    file_path = f"./skills_by_occupation_update{year}.csv"
     try:
         data = pd.read_csv(file_path)
         file_year = re.search(r'\d{4}', file_path).group()
