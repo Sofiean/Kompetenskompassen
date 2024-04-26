@@ -1,8 +1,12 @@
 import streamlit as st
 from openai import OpenAI
 import hidden
+import pandas as pd
+import re
 
-client = OpenAI(hidden.api_key)
+api_key = hidden.api_key
+
+client = OpenAI(api_key)
 
 def generate_text(prompt):
     response = client.chat.completions.create(
@@ -19,7 +23,7 @@ def generate_text(prompt):
 
 
 
-
+"""
 
 
 # Dictionary med kompetenser och deras beskrivningar (ersätt med dina egna data)
@@ -30,21 +34,23 @@ competencies_data = {
     # Lägg till fler kompetenser här...
 }
 
+
+# Dropdown-menyn för att välja kompetens
+selected_competence = st.selectbox("Välj en kompetens", list(competencies_data.keys()))
+
 """
-# Läs in CSV-filerna för varje år och lagra dem i en dictionary
+
+# Load data from CSV files and store them in a dictionary
 data_by_year = {}
 for year in range(2016, 2023):
     file_path = f"./skills_by_occupation_{year}.csv"
     try:
         data = pd.read_csv(file_path)
-        # Extrahera året från filnamnet
         file_year = re.search(r'\d{4}', file_path).group()
         data['Year'] = int(file_year)
         data_by_year[year] = data
     except FileNotFoundError:
         st.error(f"Data for year {year} not found.")
-
-"""
 
 
 
@@ -52,8 +58,14 @@ for year in range(2016, 2023):
 # Streamlit-app titel
 st.title("Generera text om kompetenser")
 
-# Dropdown-menyn för att välja kompetens
-selected_competence = st.selectbox("Välj en kompetens", list(competencies_data.keys()))
+# Get all unique competencies from the data
+all_competencies = set()
+for data in data_by_year.values():
+    all_competencies.update(data['Skill'].unique())
+
+
+# Dropdown menu for selecting competence
+selected_competence = st.selectbox("Välj en kompetens", list(all_competencies))
 
 
 # Generera och visa text när användaren klickar på knappen
