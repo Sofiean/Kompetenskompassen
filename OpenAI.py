@@ -1,8 +1,8 @@
-"sk-proj-TnYIP0TvCZic4v5Q5zPdT3BlbkFJWuxegZ3lzp4rq48h75OG"
-
 import streamlit as st
 from openai import OpenAI
-client = OpenAI(api_key="sk-proj-TnYIP0TvCZic4v5Q5zPdT3BlbkFJWuxegZ3lzp4rq48h75OG")
+import hidden
+
+client = OpenAI(hidden.api_key)
 
 def generate_text(prompt):
     response = client.chat.completions.create(
