@@ -120,6 +120,10 @@ st.title("Skills Analysis")
 occupation_options = sorted(set(data_by_year[2018]['Occupation Field']))
 selected_occupation = st.selectbox("Choose Occupation Field", occupation_options)
 
+municipality_options = sorted(set(data_by_year[2018]['Municipality']))
+selected_municipality = st.selectbox("Choose municipality",municipality_options )
+
+
 # Multiselect för att välja år
 years_options = list(data_by_year.keys())
 selected_years = st.multiselect("Choose Years", years_options, default=years_options)
@@ -129,11 +133,11 @@ if not selected_years:
     st.warning("Please choose at least one year.")
 else:
     # Skapa en DataFrame med valda år och yrkesgrupp
-    filtered_data = pd.concat([data_by_year[year][data_by_year[year]['Occupation Field'] == selected_occupation] for year in selected_years], ignore_index=True)
+    filtered_data = pd.concat([data_by_year[year][(data_by_year[year]['Occupation Field'] == selected_occupation) & (data_by_year[year]['Municipality'] == selected_municipality)] for year in selected_years], ignore_index=True)
 
     # Diagram för de mest vanliga kompetenserna
     if not filtered_data.empty:
-        st.subheader(f"Top 10 Skills for {selected_occupation} ({', '.join(map(str, selected_years))})")
+        st.subheader(f"Top 10 Skills for {selected_occupation} in {selected_municipality}({', '.join(map(str, selected_years))})")
         top_skills = filtered_data.groupby('Skill')['Count'].sum().nlargest(10)
 
         # Skapa en figur och en axel för plotten med önskad storlek
