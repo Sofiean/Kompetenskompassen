@@ -116,7 +116,7 @@ for year in range(2018, 2023):
 # Streamlit-applikation
 st.title("Skills Analysis")
 
-# Dropdown för att välja yrkesgrupp
+# Dropdown för att välja yrkesgrupp och komun
 occupation_options = sorted(set(data_by_year[2018]['Occupation Field']))
 selected_occupation = st.selectbox("Choose Occupation Field", occupation_options)
 
