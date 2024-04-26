@@ -1,0 +1,211 @@
+Occupation Field,Skill,Count
+Hälso- och sjukvård,svenska,24998
+Hälso- och sjukvård,sjukvård,22163
+Hälso- och sjukvård,körkort,14261
+Hälso- och sjukvård,behandling,6911
+Hälso- och sjukvård,omvårdnad,6856
+Hälso- och sjukvård,dokumentation,6589
+Hälso- och sjukvård,barn,6115
+Hälso- och sjukvård,datorvana,5831
+Hälso- och sjukvård,äldreboende,5624
+Hälso- och sjukvård,mottagning,5591
+Data/IT,svenska,16261
+Data/IT,engelska,15442
+Data/IT,teknik,6923
+Data/IT,design,5980
+Data/IT,java,5158
+Data/IT,programmering,4679
+Data/IT,data,4648
+Data/IT,javascript,4504
+Data/IT,c#,4141
+Data/IT,linux,4068
+"Administration, ekonomi, juridik",svenska,33901
+"Administration, ekonomi, juridik",engelska,24643
+"Administration, ekonomi, juridik",ekonomi,13660
+"Administration, ekonomi, juridik",administration,13437
+"Administration, ekonomi, juridik",microsoft office,12905
+"Administration, ekonomi, juridik",excel,10120
+"Administration, ekonomi, juridik",administrativa uppgifter,9190
+"Administration, ekonomi, juridik",arbetslivserfarenhet,8355
+"Administration, ekonomi, juridik",redovisning,7466
+"Administration, ekonomi, juridik",högskoleutbildning,7152
+Pedagogiskt arbete,undervisning,26158
+Pedagogiskt arbete,svenska,16920
+Pedagogiskt arbete,barn,16549
+Pedagogiskt arbete,förskola,10346
+Pedagogiskt arbete,lärarlegitimation,9724
+Pedagogiskt arbete,engelska,9460
+Pedagogiskt arbete,styrdokument,8960
+Pedagogiskt arbete,matematik,6212
+Pedagogiskt arbete,verktyg,6082
+Pedagogiskt arbete,forskning,5693
+Socialt arbete,körkort,15484
+Socialt arbete,barn,12067
+Socialt arbete,svenska,12003
+Socialt arbete,sjukvård,5900
+Socialt arbete,insatser,5347
+Socialt arbete,assistans,4911
+Socialt arbete,omsorg,4714
+Socialt arbete,socionomexamen,4657
+Socialt arbete,dokumentation,4612
+Socialt arbete,funktionsnedsättning,4444
+"Försäljning, inköp, marknadsföring",svenska,37232
+"Försäljning, inköp, marknadsföring",försäljning,36898
+"Försäljning, inköp, marknadsföring",engelska,21955
+"Försäljning, inköp, marknadsföring",körkort,15607
+"Försäljning, inköp, marknadsföring",kundservice,9283
+"Försäljning, inköp, marknadsföring",butik,8518
+"Försäljning, inköp, marknadsföring",verktyg,6692
+"Försäljning, inköp, marknadsföring",microsoft office,6208
+"Försäljning, inköp, marknadsföring",energi,6149
+"Försäljning, inköp, marknadsföring",egen bil,5816
+Tekniskt arbete,svenska,12047
+Tekniskt arbete,engelska,11696
+Tekniskt arbete,körkort,5135
+Tekniskt arbete,teknik,4037
+Tekniskt arbete,arbetslivserfarenhet,3319
+Tekniskt arbete,konstruktion,3078
+Tekniskt arbete,design,2999
+Tekniskt arbete,automation,2356
+Tekniskt arbete,högskoleutbildning,2247
+Tekniskt arbete,projektledning,2235
+"Installation, drift, underhåll",körkort,12261
+"Installation, drift, underhåll",svenska,9092
+"Installation, drift, underhåll",reparation,6892
+"Installation, drift, underhåll",engelska,5380
+"Installation, drift, underhåll",el,5147
+"Installation, drift, underhåll",felsökning,4535
+"Installation, drift, underhåll",datorvana,3447
+"Installation, drift, underhåll",teknik,3083
+"Installation, drift, underhåll",gymnasieutbildning,3037
+"Installation, drift, underhåll",installation,2566
+Naturbruk,körkort,1737
+Naturbruk,skötsel,806
+Naturbruk,svenska,723
+Naturbruk,gräsklippning,679
+Naturbruk,ogräsrensning,513
+Naturbruk,planter,499
+Naturbruk,trädgårdsskötsel,397
+Naturbruk,trädgårdsarbete,332
+Naturbruk,beskärning,331
+Naturbruk,trädgård,327
+Hantverksyrken,körkort,369
+Hantverksyrken,svenska,347
+Hantverksyrken,bageri,184
+Hantverksyrken,montering,140
+Hantverksyrken,konditori,126
+Hantverksyrken,hjälpmedel,97
+Hantverksyrken,engelska,97
+Hantverksyrken,bakning,94
+Hantverksyrken,reparation,93
+Hantverksyrken,datorvana,92
+Transport,svenska,12529
+Transport,körkort,10502
+Transport,truckkort,9957
+Transport,lager,7975
+Transport,truckkörning,4546
+Transport,ykb,4082
+Transport,engelska,3556
+Transport,hälsa,2796
+Transport,god fysik,2716
+Transport,truck,2709
+Sanering och renhållning,barn,4901
+Sanering och renhållning,körkort,4255
+Sanering och renhållning,svenska,3873
+Sanering och renhållning,städning,2802
+Sanering och renhållning,barnpassning,2473
+Sanering och renhållning,lokalvård,1919
+Sanering och renhållning,förskola,1391
+Sanering och renhållning,engelska,1119
+Sanering och renhållning,hemstädning,928
+Sanering och renhållning,egen bil,896
+"Hotell, restaurang, storhushåll",svenska,9369
+"Hotell, restaurang, storhushåll",mat,7086
+"Hotell, restaurang, storhushåll",restaurang,5701
+"Hotell, restaurang, storhushåll",engelska,4466
+"Hotell, restaurang, storhushåll",kök,4357
+"Hotell, restaurang, storhushåll",servering,3964
+"Hotell, restaurang, storhushåll",matlagning,3319
+"Hotell, restaurang, storhushåll",städning,2720
+"Hotell, restaurang, storhushåll",kassaarbete,2682
+"Hotell, restaurang, storhushåll",körkort,2598
+Bygg och anläggning,körkort,8558
+Bygg och anläggning,svenska,6640
+Bygg och anläggning,engelska,2759
+Bygg och anläggning,anläggning,2088
+Bygg och anläggning,yrkesbevis,1864
+Bygg och anläggning,arbetslivserfarenhet,1755
+Bygg och anläggning,byggbranschen,1718
+Bygg och anläggning,projektledning,1639
+Bygg och anläggning,projektering,1226
+Bygg och anläggning,teknik,1188
+Industriell tillverkning,körkort,7078
+Industriell tillverkning,svenska,6938
+Industriell tillverkning,truckkort,5383
+Industriell tillverkning,ritningsläsning,4109
+Industriell tillverkning,montering,3993
+Industriell tillverkning,industri,3117
+Industriell tillverkning,egen bil,2627
+Industriell tillverkning,engelska,2252
+Industriell tillverkning,gymnasieutbildning,2066
+Industriell tillverkning,teknik,2062
+Naturvetenskapligt arbete,engelska,1763
+Naturvetenskapligt arbete,svenska,1608
+Naturvetenskapligt arbete,körkort,1085
+Naturvetenskapligt arbete,doktorsexamen,838
+Naturvetenskapligt arbete,forskning,783
+Naturvetenskapligt arbete,högskoleutbildning,778
+Naturvetenskapligt arbete,data,748
+Naturvetenskapligt arbete,miljö,662
+Naturvetenskapligt arbete,analys,599
+Naturvetenskapligt arbete,kemi,599
+"Kultur, media, design",svenska,2043
+"Kultur, media, design",engelska,1493
+"Kultur, media, design",körkort,1152
+"Kultur, media, design",informationsvetenskap,810
+"Kultur, media, design",biblioteksvetenskap,708
+"Kultur, media, design",design,694
+"Kultur, media, design",barn,596
+"Kultur, media, design",adobe photoshop,579
+"Kultur, media, design",sociala medier,540
+"Kultur, media, design",material,538
+Kropps- och skönhetsvård,svenska,632
+Kropps- och skönhetsvård,behandling,520
+Kropps- och skönhetsvård,försäljning,286
+Kropps- och skönhetsvård,engelska,264
+Kropps- och skönhetsvård,klippning,240
+Kropps- och skönhetsvård,färgning,222
+Kropps- och skönhetsvård,massage,205
+Kropps- och skönhetsvård,herrklippning,167
+Kropps- och skönhetsvård,pedikyr,166
+Kropps- och skönhetsvård,gesällbrev,164
+Chefer och verksamhetsledare,ledarskap,8407
+Chefer och verksamhetsledare,personalansvar,7550
+Chefer och verksamhetsledare,svenska,7263
+Chefer och verksamhetsledare,ekonomi,5870
+Chefer och verksamhetsledare,engelska,5288
+Chefer och verksamhetsledare,högskoleutbildning,4954
+Chefer och verksamhetsledare,körkort,4732
+Chefer och verksamhetsledare,försäljning,3811
+Chefer och verksamhetsledare,budget,3452
+Chefer och verksamhetsledare,arbetsmiljö,3413
+Säkerhetsarbete,svenska,2405
+Säkerhetsarbete,körkort,2200
+Säkerhetsarbete,engelska,1386
+Säkerhetsarbete,säkerhet,667
+Säkerhetsarbete,gymnasiekompetens,559
+Säkerhetsarbete,arbetslivserfarenhet,526
+Säkerhetsarbete,säkerhetsarbete,425
+Säkerhetsarbete,språkkunskaper,420
+Säkerhetsarbete,datorvana,406
+Säkerhetsarbete,väktarutbildning,403
+Militärt arbete,registerkontroll,592
+Militärt arbete,svenskt medborgarskap,592
+Militärt arbete,säkerhetsprövning,591
+Militärt arbete,körkort,391
+Militärt arbete,försvarsmakten,325
+Militärt arbete,svenska,241
+Militärt arbete,engelska,218
+Militärt arbete,gmu,151
+Militärt arbete,förarbevis,142
+Militärt arbete,ledning,110
