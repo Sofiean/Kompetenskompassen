@@ -102,8 +102,8 @@ st.markdown(
 
 # Läs in CSV-filerna för varje år och lagra dem i en dictionary
 data_by_year = {}
-for year in range(2016, 2023):
-    file_path = f"./skills_by_occupation_{year}.csv"
+for year in range(2018, 2023):
+    file_path = f"./CSVfiler/skills_by_occupation_update{year}.csv"
     try:
         data = pd.read_csv(file_path)
         # Extrahera året från filnamnet
@@ -117,7 +117,7 @@ for year in range(2016, 2023):
 st.title("Skills Analysis")
 
 # Dropdown för att välja yrkesgrupp
-occupation_options = sorted(set(data_by_year[2016]['Occupation Field']))
+occupation_options = sorted(set(data_by_year[2018]['Occupation Field']))
 selected_occupation = st.selectbox("Choose Occupation Field", occupation_options)
 
 # Multiselect för att välja år
