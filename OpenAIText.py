@@ -14,8 +14,9 @@ def generate_text(prompt):
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": "Du är en näringslivsexpert som förklarar kompetenser och fokuserar på dess användningsområden i samhället och hur den appliceras i organisationer."},
+        #{skriv en negativ prompt till systemet}
         {"role": "user", "content": "Skriv en strukturerad text som först förklarar kompetensen " + prompt +" och sedan ber."},
-        {"role": "user", "content": "Ifall " + prompt + "är flera kompetenser, förklara sambandet och dess betydelse."}
+        {"role": "user", "content": "Ifall " + prompt + " består av flera kompetenser, förklara vikten av sambandet mellan dessa kompetenser."}
     ]
     ) 
     answer = response.choices[0].message
