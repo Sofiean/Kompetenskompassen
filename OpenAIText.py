@@ -1,10 +1,15 @@
 import streamlit as st
 from openai import OpenAI
-import hidden 
+
 import pandas as pd
 import re
 
-ghost = hidden.key
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
+ghost = os.getenv("API_KEY")
 client = OpenAI(api_key=ghost)
 
 
