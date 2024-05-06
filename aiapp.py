@@ -63,7 +63,7 @@ def analysis():
                            occupation_options=data_by_year[2018]['Occupation Field'].unique().tolist(),
                            municipality_options=data_by_year[2018]['Municipality'].unique().tolist(),
                            years_options=list(data_by_year.keys()))
-
+"""
 # Route for the AI page
 @app.route('/AI', methods=['GET', 'POST'])
 def ai_page():
@@ -81,6 +81,20 @@ def ai_page():
         all_competencies.update(data['Skill'].unique())
 
     return render_template('AI.html', all_competencies=all_competencies)
+"""
+#Börja om från början med chatgpt och mata den med all kod på nytt
+@app.route('/AI')
+def ai():
+    all_competencies = set()
+    for data in data_by_year.values():
+        all_competencies.update(data['Skill'].unique())
+    return render_template('AI.html', all_competencies=all_competencies)
+
+@app.route('/generate_text', methods=['POST'])
+def generate_text():
+    selected_competence = request.form['selected_competence']
+    generated_text = generate_text(selected_competence)
+    return render_template('AI.html', generated_text=generated_text)
 
 # Run the Flask application
 if __name__ == "__main__":
