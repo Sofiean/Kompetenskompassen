@@ -29,6 +29,11 @@ for year in range(2018, 2023):
 def index():
     return render_template('index.html')
 
+@app.route('/AI')
+def ai():
+    return render_template('ai.html')
+
+
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
     if request.method == 'POST':
@@ -81,3 +86,4 @@ def ai_page():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
