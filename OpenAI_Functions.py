@@ -8,7 +8,10 @@ import os
 from dotenv import load_dotenv
 
 # Load environment variables from .env
-load_dotenv()
+def config_api():
+    load_dotenv()
+
+config_api()
 ghost = os.getenv("API_KEY")
 client = OpenAI(api_key=ghost)
 
@@ -27,7 +30,7 @@ def generate_text(prompt):
     answer = response.choices[0].message
     return answer
 
-
+"""
 #DATA
 # Load data from CSV files and store them in a dictionary
 data_by_year = {}
@@ -64,3 +67,4 @@ if st.button("Generera text"):
     prompt = selected_competence #om jag vill ändra selected competence till en lista 
     generated_text = generate_text(prompt)
     st.text_area("Genererad text", generated_text)
+"""

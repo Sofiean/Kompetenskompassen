@@ -69,7 +69,20 @@
 
     <section>
         <h2>Artificial Intelligence</h2>
-        <p>This is the Artificial Intelligence page content. You can add your AI-related content here.</p>
+        <form action="/AI" method="post">
+            <label for="selected_competence">Select a competence:</label>
+            <select name="selected_competence" id="selected_competence">
+                {% for competence in all_competencies %}
+                <option value="{{ competence }}">{{ competence }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Generate text">
+        </form>
+
+        {% if generated_text %}
+        <h3>Generated text:</h3>
+        <textarea readonly>{{ generated_text }}</textarea>
+        {% endif %}
     </section>
 </body>
 </html>

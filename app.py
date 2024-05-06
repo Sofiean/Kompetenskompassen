@@ -2,6 +2,10 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import os
+from OpenAI_Functions import generate_text, config_api
+
+# Load environment variables from .env
+config_api()
 
 app = Flask(__name__)
 
@@ -61,6 +65,24 @@ def analysis():
                            occupation_options=data_by_year[2018]['Occupation Field'].unique().tolist(),
                            municipality_options=data_by_year[2018]['Municipality'].unique().tolist(),
                            years_options=list(data_by_year.keys()))
+
+# Route for the AI page
+@app.route('/AI', methods=['GET', 'POST'])
+def ai_page():
+    if request.method == 'POST':
+        # Generate AI text based on form input
+        selected_competence = request.form['selected_competence']
+        generated_text = generate_text(selected_competence)
+        
+        # Render AI template with generated text
+        return render_template('AI.html', generated_text=generated_text)
+
+    # Render AI page with form to select a competence
+    all_competencies = set()
+    for data in data_by_year.values():
+        all_competencies.update(data['Skill'].unique())
+
+    return render_template('AI.html', all_competencies=all_competencies)
 
 if __name__ == "__main__":
     app.run(debug=True)
