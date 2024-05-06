@@ -1,4 +1,4 @@
-from OpenAI_Functions import generate_text
+
 from flask import Flask, render_template, request
 import pandas as pd
 import os
