@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillGap - Analysis Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        canvas {
+            display: block;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px; /* Max width for larger screens */
+            height: auto; /* Maintain aspect ratio */
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SkillGap - Analysis Results</h1>
+    </header>
+
+    <form action="/analysis" method="post">
+        <h2>Filter Data</h2>
+        <label for="occupation">Occupation:</label>
+        <select name="occupation" id="occupation">
+            {% for occupation in occupation_options %}
+                <option value="{{ occupation }}">{{ occupation }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="municipality">Municipality:</label>
+        <select name="municipality" id="municipality">
+            {% for municipality in municipality_options %}
+                <option value="{{ municipality }}">{{ municipality }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="years">Year:</label>
+        <select name="years" id="years">
+            {% for year in years_options %}
+                <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Apply Filter">
+    </form>
+
+    {% if top_skills is not none and not top_skills.empty %}
+    <h2>Top Skills</h2>
+    <canvas id="skillsChart"></canvas>
+
+    <script>
+        var topSkillsData = {
+            labels: {{ top_skills.keys().tolist()|tojson }},
+            datasets: [{
+                label: 'Skill Count',
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1,
+                data: {{ top_skills.tolist()|tojson }}
+            }]
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('skillsChart').getContext('2d');
+            var skillsChart = new Chart(ctx, {
+                type: 'bar',
+                data: topSkillsData,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Top 10 Skills'
+                    }
+                }
+            });
+        };
+    </script>
+    {% endif %}
+</body>
+</html>
