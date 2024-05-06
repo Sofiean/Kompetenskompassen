@@ -40,12 +40,50 @@
         header a:hover {
             color: #ddd;
         }
-        h1 {
+        h2 {
             text-align: center;
-            color: #000;
             margin-top: 20px;
+            color: #000;
         }
-        /* Add your additional styles here */
+        section {
+            width: 80%;
+            margin: 0 auto;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #000026;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #001a40;
+        }
+        .generated-text {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -55,41 +93,30 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/analysis">Analysis</a></li>
-                <li><a href="#">Kompetenslexikon</a></li>
-                <li><a href="#">AI</a></li>
+                <li><a href="/ai">AI</a></li>
             </ul>
         </nav>
     </header>
 
     <section>
         <h2>Artificial Intelligence</h2>
-        <p>This is the Artificial Intelligence page content. You can add your AI-related content here.</p>
-        
-        <!-- AI Form -->
-        <form action="/generate_text" method="POST" id="generate_text_form">
+        <form action="/ai" method="POST">
             <label for="selected_competence">Select Competence:</label><br>
             <select name="selected_competence" id="selected_competence">
                 {% for competence in all_competencies %}
                 <option value="{{ competence }}">{{ competence }}</option>
                 {% endfor %}
             </select><br><br>
-            <input type="button" value="Generate Text" onclick="submitForm()">
+            <input type="submit" value="Generate Text">
         </form>
 
-        <!-- Generated Text -->
         {% if generated_text %}
-        <div>
+        <div class="generated-text">
             <h3>Generated Text:</h3>
             <p>{{ generated_text }}</p>
         </div>
         {% endif %}
     </section>
-
-    <script>
-        function submitForm() {
-            document.getElementById("generate_text_form").submit();
-        }
-    </script>
 
 </body>
 </html>
