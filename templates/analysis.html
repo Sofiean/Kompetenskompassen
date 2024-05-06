@@ -7,12 +7,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Merryweather, serif; /* Typsnittet Merryweather */
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #007bff;
+            background-color: #000026; /* Färgen #000026 */
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -73,8 +73,8 @@
             labels: {{ top_skills.keys().tolist()|tojson }},
             datasets: [{
                 label: 'Skill Count',
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(0, 0, 90, 0.6)', /* Färgen #00005A */
+                borderColor: 'rgba(0, 0, 90, 1)', /* Färgen #00005A */
                 borderWidth: 1,
                 data: {{ top_skills.tolist()|tojson }}
             }]
