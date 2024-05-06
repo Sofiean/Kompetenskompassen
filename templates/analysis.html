@@ -7,13 +7,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            font-family: Merryweather, serif; /* Typsnittet Merryweather */
+            font-family: Arial, sans-serif; /* Samma typsnitt som landningssidan */
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #000026; /* Färgen #000026 */
-            color: #fff;
+            background-color: #000026; /* Uppdaterad färg */
+            color: #fff; /* Behåller textfärgen */
             padding: 20px;
             text-align: center;
         }
@@ -35,7 +35,7 @@
 </head>
 <body>
     <header>
-        <h1>SkillGap - Analysis Results</h1>
+        <h1>SkillGap</h1>
     </header>
 
     <form action="/analysis" method="post">
@@ -73,8 +73,8 @@
             labels: {{ top_skills.keys().tolist()|tojson }},
             datasets: [{
                 label: 'Skill Count',
-                backgroundColor: 'rgba(0, 0, 90, 0.6)', /* Färgen #00005A */
-                borderColor: 'rgba(0, 0, 90, 1)', /* Färgen #00005A */
+                backgroundColor: 'rgba(0, 0, 38, 0.6)', /* Uppdaterad färg */
+                borderColor: 'rgba(0, 0, 38, 1)', /* Uppdaterad färg */
                 borderWidth: 1,
                 data: {{ top_skills.tolist()|tojson }}
             }]
