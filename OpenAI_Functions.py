@@ -41,6 +41,9 @@ for year in range(2018, 2023):
     except FileNotFoundError:
         st.error(f"Data for year {year} not found.")
 
+
+
+
 # Get all unique competencies from the data
 all_competencies = set()
 for data in data_by_year.values():
