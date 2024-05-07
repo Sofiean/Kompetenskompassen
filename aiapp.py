@@ -66,7 +66,6 @@ def analysis():
                            years_options=list(data_by_year.keys()))
 
 
-
 # Route for the AI page
 @app.route('/ai', methods=['GET', 'POST'])
 def ai_page():
