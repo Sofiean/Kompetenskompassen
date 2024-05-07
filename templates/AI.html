@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artificial Intelligence - SkillGap</title>
+    <title>SkillGap</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,21 +42,63 @@
         }
         h1 {
             text-align: center;
-            color: #000;
+            color: #fff;
             margin-top: 20px;
         }
         /* Add your additional styles here */
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #000026;
+            margin-top: 20px;
+        }
+        select, input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        select {
+            width: calc(100% - 20px);
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            background-color: #000026;
+            color: #fff;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #000014;
+        }
+        textarea {
+            width: calc(100% - 20px);
+            height: 200px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Artificial Intelligence - SkillGap</h1>
+        <h1>SkillGap</h1>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/analysis">Analysis</a></li>
                 <li><a href="#">Kompetenslexikon</a></li>
-                <li><a href="#">AI</a></li>
+                <li><a href="/ai">AI</a></li>
             </ul>
         </nav>
     </header>
@@ -64,26 +106,21 @@
     <section>
         <h2>Artificial Intelligence</h2>
         <p>This is the Artificial Intelligence page content. You can add your AI-related content here.</p>
-        
-        <!-- AI Form -->
-        <form action="/generate_text" method="POST">
-            <label for="selected_competence">Select Competence:</label><br>
+
+        <form action="/ai" method="post">
+            <label for="selected_competence">Select a competence:</label>
             <select name="selected_competence" id="selected_competence">
                 {% for competence in all_competencies %}
                 <option value="{{ competence }}">{{ competence }}</option>
                 {% endfor %}
-            </select><br><br>
-            <input type="submit" value="Generate Text">
+            </select>
+            <input type="submit" value="Generate text">
         </form>
 
-        <!-- Generated Text -->
         {% if generated_text %}
-        <div>
-            <h3>Generated Text:</h3>
-            <p>{{ generated_text }}</p>
-        </div>
+        <h3>Generated text:</h3>
+        <textarea readonly>{{ generated_text }}</textarea>
         {% endif %}
     </section>
-
 </body>
 </html>
