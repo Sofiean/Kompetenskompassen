@@ -1,8 +1,6 @@
-
 from flask import Flask, render_template, request
 import pandas as pd
 import os
-
 
 app = Flask(__name__)
 
@@ -23,13 +21,13 @@ for year in range(2018, 2023):
         print(f"Data for year {year} not found.")
 
 @app.route('/')
-def index1():
+
+def index():
     return render_template('index1.html')
 
 @app.route('/AI')
 def ai():
     return render_template('ai.html')
-
 
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
@@ -65,4 +63,3 @@ def analysis():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
