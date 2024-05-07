@@ -1,125 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
+@ -3,117 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillGap - Analys Resultat</title>
+    <title>SkillGap - Analysis Results</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
         }
         header {
-            background-color: #007bff;
-            color: #fff;
+            background-color: #000026;
             padding: 20px;
             text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
-        h1, h2 {
+        header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        header li {
+            display: inline;
+            margin-right: 20px;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        header a:hover {
+            color: #ddd;
+        }
+        h1 {
             text-align: center;
+            color: #fff;
+            margin-top: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #000026;
+            margin-top: 20px;
         }
         canvas {
             display: block;
-            margin: 20px auto;
+            margin: 0 auto;
             width: 80%;
-            max-width: 800px; /* Max width for larger screens */
-            height: auto; /* Maintain aspect ratio */
+            max-width: 800px;
+            height: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
         form {
             text-align: center;
             margin-bottom: 20px;
         }
-        .btn {
-            display: inline-block;
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
+        select, input[type="submit"] {
+            padding: 10px;
+            border: none;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+        select {
+            width: calc(33.33% - 20px);
             margin-right: 10px;
         }
-        .btn:hover {
-            background-color: #0056b3;
+        input[type="submit"] {
+            background-color: #000026;
+            color: #fff;
+            width: 150px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #000014;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>SkillGap - Analysis Results</h1>
+        <h1>SkillGap</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/analysis">Analys</a></li>
+                <li><a href="#">Kompetenslexikon</a></li>
+                <li><a href="/ai">AI</a></li> 
+            </ul>
+        </nav>
     </header>
 
-    <form action="/analysis" method="post">
+    <form action="/filter" method="post">
         <h2>Filter Data</h2>
-        <label for="occupation">Occupation:</label>
         <select name="occupation" id="occupation">
             {% for occupation in occupation_options %}
                 <option value="{{ occupation }}">{{ occupation }}</option>
             {% endfor %}
         </select>
 
-        <label for="municipality">Municipality:</label>
         <select name="municipality" id="municipality">
             {% for municipality in municipality_options %}
                 <option value="{{ municipality }}">{{ municipality }}</option>
             {% endfor %}
         </select>
 
-        <label for="years">Year:</label>
         <select name="years" id="years">
             {% for year in years_options %}
                 <option value="{{ year }}">{{ year }}</option>
-            {% endfor %}
-        </select>
-
-        <input type="submit" value="Apply Filter">
-    </form>
-
-    {% if top_skills is not none and not top_skills.empty %}
+@ -127,13 +81,16 @@
     <h2>Top Skills</h2>
     <canvas id="skillsChart"></canvas>
-
-    <button class="btn" onclick="window.location.href='/analysis'">Generera om data</button>
-    <button class="btn" onclick="window.location.href='/index1'">Till Hem</button>
 
     <script>
         var topSkillsData = {
             labels: {{ top_skills.keys().tolist()|tojson }},
             datasets: [{
                 label: 'Skill Count',
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(0, 0, 38, 0.6)',
+                borderColor: 'rgba(0, 0, 38, 1)',
                 borderWidth: 1,
                 data: {{ top_skills.tolist()|tojson }}
             }]
-        };
-
-        window.onload = function() {
-            var ctx = document.getElementById('skillsChart').getContext('2d');
-            var skillsChart = new Chart(ctx, {
-                type: 'bar',
-                data: topSkillsData,
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    },
-                    legend: {
-                        display: false
+@ -157,7 +114,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'Topp 10 Kompetenser'
+                        text: 'Top 10 Skills'
                     }
                 }
             });
-        };
-    </script>
-    {% endif %}
-</body>
-</html>
