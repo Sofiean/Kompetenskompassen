@@ -49,9 +49,9 @@ def analysis():
                                              municipality_options=all_municipalities,
                                              years_options=all_years)
 
-@app.route('/index1')
+@app.route('/home')
 def index1():
-    return render_template('index1.html')
+    return render_template('home.htlm')
 
 if __name__ == '__main__':
     app.run(debug=True)
