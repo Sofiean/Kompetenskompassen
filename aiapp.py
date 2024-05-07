@@ -30,8 +30,8 @@ for data in data_by_year.values():
     all_competencies.update(data['Skill'].unique())
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
