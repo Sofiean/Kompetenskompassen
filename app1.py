@@ -29,8 +29,6 @@ def index():
 def ai():
     return render_template('ai.html')
 
->>>>>>> e645243aa6b924eefd8e59fad4e374d0bb59cbe6
-
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
     if request.method == 'POST':
