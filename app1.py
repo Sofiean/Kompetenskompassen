@@ -23,8 +23,8 @@ for year in range(2018, 2023):
         print(f"Data for year {year} not found.")
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def index1():
+    return render_template('index1.html')
 
 @app.route('/AI')
 def ai():
