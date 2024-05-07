@@ -1,11 +1,9 @@
-import streamlit as st
-from openai import OpenAI
-
 import pandas as pd
 import re
 
 import os
 from dotenv import load_dotenv
+from openai import OpenAI
 
 # Load environment variables from .env
 def config_api():
@@ -32,6 +30,8 @@ def generate_text(prompt):
 
 
 """
+########################-------STREAMLIT--------##########################
+import streamlit as st
 #DATA
 # Load data from CSV files and store them in a dictionary
 data_by_year = {}

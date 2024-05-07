@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import os
-from OpenAI_Functions import config_api, generate_text
+from openai_functions import config_api, generate_text
 
 app = Flask(__name__)
 
