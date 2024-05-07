@@ -21,8 +21,18 @@ for year in range(2018, 2023):
         print(f"Data for year {year} not found.")
 
 @app.route('/')
+<<<<<<< HEAD
 def index():
     return render_template('index1.html')
+=======
+def index1():
+    return render_template('index1.html')
+
+@app.route('/AI')
+def ai():
+    return render_template('ai.html')
+
+>>>>>>> e645243aa6b924eefd8e59fad4e374d0bb59cbe6
 
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
