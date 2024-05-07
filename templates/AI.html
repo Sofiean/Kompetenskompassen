@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence - SkillGap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #000026;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        header li {
+            display: inline;
+            margin-right: 20px;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        header a:hover {
+            color: #ddd;
+        }
+        h1 {
+            text-align: center;
+            color: #000;
+            margin-top: 20px;
+        }
+        /* Add your additional styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Artificial Intelligence - SkillGap</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/analysis">Analysis</a></li>
+                <li><a href="#">Kompetenslexikon</a></li>
+                <li><a href="#">AI</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Artificial Intelligence</h2>
+        <p>This is the Artificial Intelligence page content. You can add your AI-related content here.</p>
+        
+        <!-- AI Form -->
+        <form action="/generate_text" method="POST">
+            <label for="selected_competence">Select Competence:</label><br>
+            <select name="selected_competence" id="selected_competence">
+                {% for competence in all_competencies %}
+                <option value="{{ competence }}">{{ competence }}</option>
+                {% endfor %}
+            </select><br><br>
+            <input type="submit" value="Generate Text">
+        </form>
+
+        <!-- Generated Text -->
+        {% if generated_text %}
+        <div>
+            <h3>Generated Text:</h3>
+            <p>{{ generated_text }}</p>
+        </div>
+        {% endif %}
+    </section>
+
+</body>
+</html>
