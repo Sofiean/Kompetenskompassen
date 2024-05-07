@@ -24,9 +24,6 @@ for year in range(2018, 2023):
 <<<<<<< HEAD
 def index():
     return render_template('index1.html')
-=======
-def index1():
-    return render_template('index1.html')
 
 @app.route('/AI')
 def ai():
