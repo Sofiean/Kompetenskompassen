@@ -1,4 +1,5 @@
-@ -3,117 +3,71 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -116,7 +117,13 @@
         <select name="years" id="years">
             {% for year in years_options %}
                 <option value="{{ year }}">{{ year }}</option>
-@ -127,13 +81,16 @@
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Apply Filter">
+    </form>
+
+    {% if top_skills is not none and not top_skills.empty %}
     <h2>Top Skills</h2>
     <canvas id="skillsChart"></canvas>
 
@@ -130,7 +137,23 @@
                 borderWidth: 1,
                 data: {{ top_skills.tolist()|tojson }}
             }]
-@ -157,7 +114,7 @@
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('skillsChart').getContext('2d');
+            var skillsChart = new Chart(ctx, {
+                type: 'bar',
+                data: topSkillsData,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false
                     },
                     title: {
                         display: true,
@@ -138,3 +161,8 @@
                     }
                 }
             });
+        };
+    </script>
+    {% endif %}
+</body>
+</html>
