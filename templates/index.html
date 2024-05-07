@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skillgap</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  </head>
+  <body>
+    <h1>Skillgap</h1>
+
+    <form action="/analysis" method="post">
+      <h2>Filter Data</h2>
+      <select name="occupation" id="occupation">
+        {% for occupation in occupation_options %}
+        <option value="{{ occupation }}">{{ occupation }}</option>
+        {% endfor %}
+      </select>
+
+      <select name="municipality" id="municipality">
+        {% for municipality in municipality_options %}
+        <option value="{{ municipality }}">{{ municipality }}</option>
+        {% endfor %}
+      </select>
+
+      <select name="years" id="years">
+        {% for year in years_options %}
+        <option value="{{ year }}">{{ year }}</option>
+        {% endfor %}
+      </select>
+
+      <input type="submit" value="Apply Filter" />
+    </form>
+
+    {% if top_skills %}
+    <h2>Top 10 Skills</h2>
+    <canvas id="skillChart"></canvas>
+
+    <script>
+      const ctx = document.getElementById('skillChart').getContext('2d');
+      const labels = [];
+      const data = [];
+
+      {% for skill, count in top_skills %}
+        labels.push('{{ skill }}');
+        data.push({{ count }});
+      {% endfor %}
+
+      const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Skill Count',
+            data: data,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+    </script>
+    {% endif %}
+  </body>
+</html>
