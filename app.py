@@ -19,7 +19,7 @@ for year_data in csv_files.values():
 
 @app.route('/')
 def index():
-    return render_template('index.html', occupation_options=all_occupations,
+    return render_template('home.html', occupation_options=all_occupations,
                                          municipality_options=all_municipalities,
                                          years_options=all_years)
 
