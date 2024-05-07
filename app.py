@@ -28,7 +28,7 @@ def index():
 
 @app.route('/AI')
 def ai():
-    return render_template('AI.html')
+    return render_template('ai.html')
 
 
 @app.route('/analysis', methods=['GET', 'POST'])

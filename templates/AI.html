@@ -3,120 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artificial Intelligence - SkillGap</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        header {
-            background-color: #000026;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
-        header ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        header li {
-            display: inline;
-            margin-right: 20px;
-        }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        header a:hover {
-            color: #ddd;
-        }
-        h2 {
-            text-align: center;
-            margin-top: 20px;
-            color: #000;
-        }
-        section {
-            width: 80%;
-            margin: 0 auto;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        label {
-            font-weight: bold;
-        }
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 6px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f8f8f8;
-            font-size: 16px;
-        }
-        input[type="submit"] {
-            background-color: #000026;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        input[type="submit"]:hover {
-            background-color: #001a40;
-        }
-        .generated-text {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 4px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <title>ai</title>
 </head>
 <body>
-    <header>
-        <h1>Artificial Intelligence - SkillGap</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/analysis">Analysis</a></li>
-                <li><a href="/ai">AI</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h1>Generate Text about Competencies</h1>
+    <form id="generateForm">
+        <label for="competence">Select a competence:</label>
+        <select name="competence" id="competence">
+            <!-- Competence options will be dynamically populated here -->
+        </select>
+        <button type="submit">Generate Text</button>
+    </form>
+    <div id="generatedText"></div>
 
-    <section>
-        <h2>Artificial Intelligence</h2>
-        <form action="/ai" method="POST">
-            <label for="selected_competence">Select Competence:</label><br>
-            <select name="selected_competence" id="selected_competence">
-                {% for competence in all_competencies %}
-                <option value="{{ competence }}">{{ competence }}</option>
-                {% endfor %}
-            </select><br><br>
-            <input type="submit" value="Generate Text">
-        </form>
+    <script>
+        document.getElementById('generateForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const competence = formData.get('competence');
 
-        {% if generated_text %}
-        <div class="generated-text">
-            <h3>Generated Text:</h3>
-            <p>{{ generated_text }}</p>
-        </div>
-        {% endif %}
-    </section>
-
+            // AJAX request to generate text
+            fetch('/generate_text', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ competence: competence })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('generatedText').innerText = data.generated_text;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>
+
