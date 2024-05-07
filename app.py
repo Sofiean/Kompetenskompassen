@@ -51,7 +51,7 @@ def analysis():
 
 @app.route('/home')
 def index1():
-    return render_template('home.htlm')
+    return render_template('home.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
