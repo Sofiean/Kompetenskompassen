@@ -17,7 +17,6 @@
             text-align: center;
             margin-bottom: 30px;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-           
         }
         header ul {
             list-style-type: none;
@@ -72,6 +71,10 @@
         .btn:hover {
             background-color: #0056b3;
         }
+        .filters {
+            text-align: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -82,27 +85,28 @@
                 <li><a href="/">Hem</a></li>
                 <li><a href="/index">Analys</a></li>
                 <li><a href="/AI">Kompetenslexikon</a></li>
-
             </ul>
         </nav>
     </header>
    
     <form action="/analysis" method="post">
-        <h2> h </h2>
+        <h2>Filter</h2>
         <select name="occupation" id="occupation">
-            <option value="" disabled selected>Välj ett yrke</option>
+            <option value="" disabled selected>Yrkesgrupp</option>
             {% for occupation in occupation_options %}
             <option value="{{ occupation }}">{{ occupation }}</option>
             {% endfor %}
         </select>
 
         <select name="municipality" id="municipality">
+            <option value="" disabled selected>Kommuner</option>
             {% for municipality in municipality_options %}
             <option value="{{ municipality }}">{{ municipality }}</option>
             {% endfor %}
         </select>
 
         <select name="years" id="years">
+            <option value="" disabled selected>År</option>
             {% for year in years_options %}
             <option value="{{ year }}">{{ year }}</option>
             {% endfor %}
@@ -112,7 +116,22 @@
     </form>
 
     {% if top_skills %}
-    <h2>10 vanligaste kompetenserna</h2>
+    <div class="filters">
+        <h2>10 Vanligaste kompetenserna för:</h2>
+        <p>
+            {% if request.form.occupation %}
+                Yrkesgrupp: {{ request.form.occupation }}
+            {% endif %}
+            {% if request.form.municipality %}
+                Kommun: {{ request.form.municipality }}
+            {% endif %}
+            {% if request.form.years %}
+                År: {{ request.form.years }}
+            {% endif %}
+        </p>
+    </div>
+
+  
     <canvas id="skillChart"></canvas>
 
     <script>
@@ -151,4 +170,3 @@
     {% endif %}
 </body>
 </html>
-
