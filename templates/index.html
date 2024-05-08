@@ -178,5 +178,29 @@
         });
     </script>
     {% endif %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                // Hämta värdena från filter
+                const occupationValue = document.getElementById('occupation').value;
+                const municipalityValue = document.getElementById('municipality').value;
+                const yearsValue = document.getElementById('years').value;
+    
+                // Om inget filter är valt
+                if (!occupationValue && !municipalityValue && !yearsValue) {
+                    // Visa meddelandet och förhindra formulärets standardbeteende
+                    event.preventDefault();
+                    document.getElementById('no_filters_message').style.display = 'block';
+                    // Göm meddelandet "Du har inte valt några filter" om det redan visas
+                    document.getElementById('no_filters_message').style.display = 'none';
+                    
+                }
+            });
+        });
+    </script>
+    
+</body>
+
 </body>
 </html>
