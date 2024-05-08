@@ -122,6 +122,10 @@
         <button type="submit" class="btn">Filtrera</button>
     </form>
 
+    <div id="select_filter_message" class="filters" style="display: none;">
+        <p>Vänligen välj filter.</p>
+    </div>
+    
     {% if top_skills %}
     <div class="filters">
         <h2>10 Vanligaste kompetenserna för:</h2>
@@ -203,14 +207,11 @@
                 const yearsValue = document.getElementById('years').value;
     
                 // Om inget filter är valt
-                if (!occupationValue && !municipalityValue && !yearsValue) {
-                    // Visa meddelandet och förhindra formulärets standardbeteende
-                    event.preventDefault();
-                    document.getElementById('no_filters_message').style.display = 'block';
-                    // Göm meddelandet "Du har inte valt några filter" om det redan visas
-                    document.getElementById('no_filters_message').style.display = 'none';
-                    
-                }
+                if (!occupation || !municipality || !years || !occupation.value || !municipality.value || !years.value) {
+                        alert('Vänligen välj alla filter innan du filtrerar.'); // Show alert message
+                    } else {
+                        form.submit(); // Submit the form if all fields are filled
+                    }
             });
         });
     </script>
