@@ -90,6 +90,7 @@
     <form action="/analysis" method="post">
        
         <select name="occupation" id="occupation">
+            
             {% for occupation in occupation_options %}
             <option value="{{ occupation }}">{{ occupation }}</option>
             {% endfor %}
@@ -129,7 +130,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Skill Count',
+                    label: 'Antal annonser',
                     data: data,
                     backgroundColor: 'rgba(0, 0, 38, 0.6)',
                     borderColor: 'rgba(0, 0, 38, 1)',
