@@ -83,8 +83,6 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-
-
     </style>
 </head>
 <body>
@@ -99,8 +97,7 @@
         </nav>
     </header>
    
-    <form action="/analysis" method="post">
-        
+    <form action="/analysis" method="post" id="filterForm">
         <select name="occupation" id="occupation">
             <option value="" disabled selected>Yrkesgrupp</option>
             {% for occupation in occupation_options %}
@@ -141,40 +138,58 @@
         </p>
     </div>
 
-  
     <canvas id="skillChart"></canvas>
 
     <script>
-        const ctx = document.getElementById('skillChart').getContext('2d');
-        const labels = [];
-        const data = [];
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById('filterForm');
+            if (form) {
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent form submission
 
-        {% for skill, count in top_skills %}
-            labels.push('{{ skill }}');
-            data.push({{ count }});
-        {% endfor %}
+                    const occupation = document.getElementById('occupation');
+                    const municipality = document.getElementById('municipality');
+                    const years = document.getElementById('years');
 
-        const chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Antal annonser',
-                    data: data,
-                    backgroundColor: 'rgba(0, 0, 38, 0.6)',
-                    borderColor: 'rgba(0, 0, 38, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
+                    if (!occupation || !municipality || !years || !occupation.value || !municipality.value || !years.value) {
+                        alert('Vänligen välj alla filter innan du filtrerar.'); // Show alert message
+                    } else {
+                        form.submit(); // Submit the form if all fields are filled
+                    }
+                });
             }
+
+            const ctx = document.getElementById('skillChart').getContext('2d');
+            const labels = [];
+            const data = [];
+
+            {% for skill, count in top_skills %}
+                labels.push('{{ skill }}');
+                data.push({{ count }});
+            {% endfor %}
+
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Antal annonser',
+                        data: data,
+                        backgroundColor: 'rgba(0, 0, 38, 0.6)',
+                        borderColor: 'rgba(0, 0, 38, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
         });
     </script>
     {% endif %}
