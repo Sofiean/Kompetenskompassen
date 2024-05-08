@@ -12,18 +12,46 @@
             padding: 0;
         }
         header {
-            background-color: #007bff;
-            color: #fff;
+            background-color: #000026;
             padding: 20px;
             text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+           
         }
-        h1, h2 {
+        header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        header li {
+            display: inline;
+            margin-right: 20px;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        header a:hover {
+            color: #ddd;
+        }
+        h1 {
             text-align: center;
+            color: #fff;
+            margin-top: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #000026;
+            margin-top: 20px;
         }
         canvas {
             display: block;
             margin: 20px auto;
-            width: 80%;
+            width: 100%;
             max-width: 800px; /* Max width for larger screens */
             height: auto; /* Maintain aspect ratio */
         }
@@ -47,14 +75,18 @@
     </style>
 </head>
 <body>
+    <header>
+        <h1>SkillGap</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/analysis">Analys</a></li>
+                <li><a href="#">Kompetenslexikon</a></li>
 
-    <a class="Hem" href="/home">Back to Index</a>
-
-    <a class="Hem" href="/home">Hem</a>
-
-
-    <h1>Skillgap</h1>
-
+            </ul>
+        </nav>
+    </header>
+   
     <form action="/analysis" method="post">
         <h2>Filter Data</h2>
         <select name="occupation" id="occupation">
