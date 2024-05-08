@@ -46,7 +46,7 @@
         h2 {
             text-align: center;
             color: #000026;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         canvas {
             display: block;
@@ -61,7 +61,7 @@
         }
         .btn {
             display: inline-block;
-            background-color: #007bff;
+            background-color: #5a0654;
             color: #fff;
             padding: 10px 20px;
             text-decoration: none;
@@ -79,16 +79,16 @@
         <h1>SkillGap</h1>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/analysis">Analys</a></li>
-                <li><a href="#">Kompetenslexikon</a></li>
+                <li><a href="/">Hem</a></li>
+                <li><a href="/index">Analys</a></li>
+                <li><a href="/AI">Kompetenslexikon</a></li>
 
             </ul>
         </nav>
     </header>
    
     <form action="/analysis" method="post">
-        <h2>Filter Data</h2>
+       
         <select name="occupation" id="occupation">
             {% for occupation in occupation_options %}
             <option value="{{ occupation }}">{{ occupation }}</option>
@@ -107,11 +107,11 @@
             {% endfor %}
         </select>
 
-        <input type="submit" value="Apply Filter" />
+        <input type="submit" value="Filtrera" />
     </form>
 
     {% if top_skills %}
-    <h2>Top 10 Skills</h2>
+    <h2>10 vanligaste kompetenserna</h2>
     <canvas id="skillChart"></canvas>
 
     <script>
@@ -131,8 +131,8 @@
                 datasets: [{
                     label: 'Skill Count',
                     data: data,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(0, 0, 38, 0.6)',
+                    borderColor: 'rgba(0, 0, 38, 1)',
                     borderWidth: 1
                 }]
             },
