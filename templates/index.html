@@ -22,10 +22,13 @@
         }
         canvas {
             display: block;
-            margin: 20px auto;
+            margin: 0 auto;
             width: 80%;
             max-width: 800px; /* Max width for larger screens */
             height: auto; /* Maintain aspect ratio */
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
         form {
             text-align: center;
@@ -48,12 +51,21 @@
 </head>
 <body>
 
-    <a class="Hem" href="/home">Back to Index</a>
 
-    <a class="Hem" href="/home">Hem</a>
+
 
 
     <h1>Skillgap</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/analysis">Analys</a></li>
+            <li><a href="#">Kompetenslexikon</a></li>
+            <li><a href="/ai">AI</a></li> 
+            <l1><a class="Hem" href="/home">Hem</a></l1>
+        </ul>
+    </nav>
+</header>
 
     <form action="/analysis" method="post">
         <h2>Filter Data</h2>
