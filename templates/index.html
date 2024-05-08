@@ -90,7 +90,7 @@
     <form action="/analysis" method="post">
         <h2> h </h2>
         <select name="occupation" id="occupation">
-            
+            <option value="" disabled selected>Välj ett yrke</option>
             {% for occupation in occupation_options %}
             <option value="{{ occupation }}">{{ occupation }}</option>
             {% endfor %}
