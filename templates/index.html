@@ -207,8 +207,9 @@
                 const yearsValue = document.getElementById('years').value;
     
                 // Om inget filter är valt
-                if (!occupation || !municipality || !years || !occupation.value || !municipality.value || !years.value) {
+                if (!occupationValue || !municipalityValue || !yearsValue) {
                         alert('Vänligen välj alla filter innan du filtrerar.'); // Show alert message
+                        event.preventDefault(); // Förhindra formuläret från att skickas
                     } else {
                         form.submit(); // Submit the form if all fields are filled
                     }
