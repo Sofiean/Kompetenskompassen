@@ -95,30 +95,29 @@
         <h1>SkillGap</h1>
         <nav>
             <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/statistik">Analysis</a></li>
-                <li><a href="#">Kompetenslexikon</a></li>
-                <li><a href="/ai">AI</a></li>
+                <li><a href="/home">Hem</a></li>
+                <li><a href="/statistik">Statistik</a></li>
+                <li><a href="/ai">Kompetenslexikon</a></li>
             </ul>
         </nav>
     </header>
 
     <section>
-        <h2>Artificial Intelligence</h2>
-        <p>This is the Artificial Intelligence page content. You can add your AI-related content here.</p>
+        <h2>Kompetenslexikon</h2>
+        <p>Välj en kompetens som du vill veta mer om!</p>
 
         <form action="/ai" method="post">
-            <label for="selected_competence">Select a competence:</label>
+            <label for="selected_competence">Välj en kompetens:</label>
             <select name="selected_competence" id="selected_competence">
                 {% for competence in all_competencies %}
                 <option value="{{ competence }}">{{ competence }}</option>
                 {% endfor %}
             </select>
-            <input type="submit" value="Generate text">
+            <input type="submit" value="Generera text">
         </form>
 
         {% if generated_text %}
-        <h3>Generated text:</h3>
+        <h3>Genererad text:</h3>
         <textarea readonly>{{ generated_text }}</textarea>
         {% endif %}
     </section>
