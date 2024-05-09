@@ -25,13 +25,13 @@ for year_data in csv_files.values():
     all_municipalities.update(year_data['Municipality'].unique())
 
 @app.route('/')
-def index():
+def home():
     return render_template('home.html', occupation_options=all_occupations,
                                          municipality_options=all_municipalities,
                                          years_options=all_years)
 
 @app.route('/statistik', methods=['POST', 'GET'])
-def analysis():
+def statistik_page():
     if request.method == 'POST':
         occupation = request.form['occupation']
         municipality = request.form['municipality']
@@ -47,21 +47,21 @@ def analysis():
         # Convert top_skills to list of tuples for passing to template
         top_skills_list = list(top_skills.items())
         
-        return render_template('index.html', top_skills=top_skills_list,
+        return render_template('statistik.html', top_skills=top_skills_list,
                                              occupation_options=all_occupations,
                                              municipality_options=all_municipalities,
                                              years_options=all_years)
     else:
-        return render_template('index.html', occupation_options=all_occupations,
+        return render_template('statistik.html', occupation_options=all_occupations,
                                              municipality_options=all_municipalities,
                                              years_options=all_years)
 
 @app.route('/home')
-def index1():
+def home_page():
     return render_template('home.html')
 
 # Route for the AI page
-@app.route('/ai', methods=['GET', 'POST'])
+@app.route('/kompetenslexikon', methods=['GET', 'POST'])
 def ai_page():
     if request.method == 'POST':
         # Generate AI text based on form input
@@ -69,14 +69,14 @@ def ai_page():
         generated_text = generate_text(selected_competence)
         
         # Render AI template with generated text
-        return render_template('ai.html', generated_text=generated_text)
+        return render_template('kompetenslexikon.html', generated_text=generated_text)
 
     # Render AI page with form to select a competence
     all_competencies = set()
     for data in csv_files.values():
         all_competencies.update(data['Skill'].unique())
 
-    return render_template('ai.html', all_competencies=all_competencies)
+    return render_template('kompetenslexikon.html', all_competencies=all_competencies)
 
 
 if __name__ == '__main__':

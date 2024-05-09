@@ -97,7 +97,7 @@
             <ul>
                 <li><a href="/home">Hem</a></li>
                 <li><a href="/statistik">Statistik</a></li>
-                <li><a href="/ai">Kompetenslexikon</a></li>
+                <li><a href="/kompetenslexikon">Kompetenslexikon</a></li>
             </ul>
         </nav>
     </header>
@@ -106,7 +106,7 @@
         <h2>Kompetenslexikon</h2>
         <p>Välj en kompetens som du vill veta mer om!</p>
 
-        <form action="/ai" method="post">
+        <form action="/kompetenslexikon" method="post">
             <label for="selected_competence">Välj en kompetens:</label>
             <select name="selected_competence" id="selected_competence">
                 {% for competence in all_competencies %}
