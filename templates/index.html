@@ -91,13 +91,13 @@
         <nav>
             <ul>
                 <li><a href="/">Hem</a></li>
-                <li><a href="/index">Analys</a></li>
+                <li><a href="/statistik">Statistik</a></li>
                 <li><a href="/AI">Kompetenslexikon</a></li>
             </ul>
         </nav>
     </header>
    
-    <form action="/analysis" method="post" id="filterForm">
+    <form action="/statistik" method="post" id="filterForm">
         <select name="occupation" id="occupation">
             <option value="" disabled selected>Yrkesgrupp</option>
             {% for occupation in occupation_options %}

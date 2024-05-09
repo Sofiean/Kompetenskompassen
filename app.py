@@ -23,7 +23,7 @@ def index():
                                          municipality_options=all_municipalities,
                                          years_options=all_years)
 
-@app.route('/analysis', methods=['POST', 'GET'])
+@app.route('/statistik', methods=['POST', 'GET'])
 def analysis():
     if request.method == 'POST':
         occupation = request.form['occupation']
