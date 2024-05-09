@@ -105,16 +105,13 @@
         <h2>Kompetenslexikon</h2>
         <p>Välj en kompetens som du vill veta mer om!</p>
 
-<<<<<<< HEAD
-<<<<<<< HEAD:templates/AI.html
+
         <form action="/ai" method="post">
-            
-=======
-=======
->>>>>>> e01ace607ba4e746035c6ca457a0abe928a918a6
+
+
         <form action="/kompetenslexikon" method="post">
             <label for="selected_competence">Välj en kompetens:</label>
->>>>>>> e01ace607ba4e746035c6ca457a0abe928a918a6:templates/kompetenslexikon.html
+
             <select name="selected_competence" id="selected_competence">
                 {% for competence in all_competencies %}
                 <option value="{{ competence }}">{{ competence }}</option>
