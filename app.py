@@ -1,7 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 
+import os
+from openai_functions import config_api, generate_text
+
 app = Flask(__name__)
+
+#OPEN AI API 
+config_api()
+
 
 # Load CSV files into a dictionary
 csv_files = {}
@@ -52,6 +59,24 @@ def analysis():
 @app.route('/home')
 def index1():
     return render_template('home.html')
+
+# Route for the AI page
+@app.route('/ai', methods=['GET', 'POST'])
+def ai_page():
+    if request.method == 'POST':
+        # Generate AI text based on form input
+        selected_competence = request.form['selected_competence']
+        generated_text = generate_text(selected_competence)
+        
+        # Render AI template with generated text
+        return render_template('ai.html', generated_text=generated_text)
+
+    # Render AI page with form to select a competence
+    all_competencies = set()
+    for data in csv_files.values():
+        all_competencies.update(data['Skill'].unique())
+
+    return render_template('ai.html', all_competencies=all_competencies)
 
 
 if __name__ == '__main__':
