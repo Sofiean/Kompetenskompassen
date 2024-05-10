@@ -26,7 +26,8 @@ def generate_text(prompt):
     ]
     ) 
     answer = response.choices[0].message
-    return answer
+    output = answer.split('\n')
+    return output
 
 
 """
