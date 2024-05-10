@@ -69,10 +69,19 @@
             margin-top: 20px;
             font-size: 62px;
         }
+
+        .button-container {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .button-container a {
+            margin: 0 40px; /* Justera avståndet mellan knapparna efter behov */
+        }
+
         h2 {
             text-align: center;
             color: #000026;
-            margin-top: 10px;
+            margin-top: 20px;
         }
         canvas {
             display: block;
@@ -117,9 +126,11 @@
         <h1>SkillGap</h1>
         <nav>
             <ul>
-                <li><a href="/">Hem</a></li>
-                <li><a href="/statistik">Statistik</a></li>
-                <li><a href="/kompetenslexikon">Kompetenslexikon</a></li>
+                <div class="button-container">
+                    <a href="/home">Hem</a>
+                    <a href="/statistik">Statistik</a>
+                    <a href="/kompetenslexikon">Kompetenslexikon</a>
+                </div>
             </ul>
         </nav>
     </header>

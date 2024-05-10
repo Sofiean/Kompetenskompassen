@@ -45,10 +45,12 @@
             list-style-type: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: center;
         }
         header li {
             display: inline;
-            margin-right: 20px;
+            margin-right: 80px;
         }
 
         header a {
@@ -69,7 +71,15 @@
             margin-top: 20px;
             font-size: 62px;
         }
-        /* Add your additional styles here */
+
+        .button-container {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .button-container a {
+            margin: 0 40px; /* Justera avståndet mellan knapparna efter behov */
+        }
+
         section {
             max-width: 800px;
             margin: 0 auto;
@@ -132,9 +142,11 @@
         <h1>SkillGap</h1>
         <nav>
             <ul>
-                <li><a href="/home">Hem</a></li>
-                <li><a href="/statistik">Statistik</a></li>
-                <li><a href="/kompetenslexikon">Kompetenslexikon</a></li>
+                <div class="button-container">
+                    <a href="/home">Hem</a>
+                    <a href="/statistik">Statistik</a>
+                    <a href="/kompetenslexikon">Kompetenslexikon</a>
+                </div>
             </ul>
         </nav>
     </header>
