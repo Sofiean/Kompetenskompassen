@@ -82,12 +82,16 @@
         }
         textarea {
             width: calc(100% - 20px);
-            height: 200px;
+            height: 400px;
             margin-bottom: 20px;
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
             resize: vertical;
+            font-size: 14px; /* Ändra storleken på den genererade texten här */
+            color: #333; /* Ändra färgen på den genererade texten här */
+            font-family: Arial, sans-serif; /* Ändra fonten på den genererade texten här */
+            margin-top: 10px; /* Lägg till marginal från knappen "Generera text" */
         }
 
         p {
@@ -125,7 +129,6 @@
         </form>
 
         {% if generated_text %}
-        <h3>Genererad text:</h3>
         <textarea readonly>{{ generated_text }}</textarea>
         {% endif %}
     </section>
