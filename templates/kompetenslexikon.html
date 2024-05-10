@@ -105,7 +105,6 @@
         <p>Välj en kompetens som du vill veta mer om!</p>
 
         <form action="/kompetenslexikon" method="post">
-            <label for="selected_competence">Välj en kompetens:</label>
             <select name="selected_competence" id="selected_competence">
                 {% for competence in all_competencies %}
                 <option value="{{ competence }}">{{ competence }}</option>
