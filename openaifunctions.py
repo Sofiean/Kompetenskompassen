@@ -25,9 +25,9 @@ def generate_text(prompt):
         {"role": "user", "content": "Ifall " + prompt + " består av flera kompetenser, förklara vikten av sambandet mellan dessa kompetenser."}
     ]
     ) 
-    answer = response.choices[0].message
-    output = answer.split('\n')
-    return output
+    answer = response.choices[0].message.content
+    
+    return answer
 
 
 """
