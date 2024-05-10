@@ -115,19 +115,34 @@
         <h2>Kompetenslexikon</h2>
         <p>Välj en kompetens som du vill veta mer om!</p>
 
-        <form action="/kompetenslexikon" method="post">
+        <form action="/kompetenslexikon" method="post" onsubmit="showLoading()">
             <select name="selected_competence" id="selected_competence">
                 {% for competence in all_competencies %}
                 <option value="{{ competence }}">{{ competence }}</option>
                 {% endfor %}
             </select>
             <input type="submit" value="Generera text">
+            <div id="loadingIndicator" style="display: none;">
+                Loading...
+            </div>
         </form>
+        
+        
 
         {% if generated_text %}
         <h3>Genererad text:</h3>
         <textarea readonly>{{ generated_text }}</textarea>
         {% endif %}
     </section>
+
+   <!-- JavaScript function -->
+    <script>
+    function showLoading() {
+        document.getElementById("loadingIndicator").style.display = "block";
+    }   
+    </script>
+
+
+
 </body>
 </html>
