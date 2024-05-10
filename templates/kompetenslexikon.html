@@ -18,7 +18,8 @@
             text-align: center;
             margin-bottom: 30px;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-           
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
         header ul {
             list-style-type: none;
@@ -60,12 +61,12 @@
         }
         select, input[type="submit"] {
             padding: 10px;
-            border: 1px solid #ccc;
+            border: none;
             border-radius: 5px;
             margin-bottom: 10px;
         }
         select {
-            width: calc(100% - 10px);
+            width: calc(100% - 20px);
             margin-bottom: 20px;
         }
         input[type="submit"] {
@@ -76,7 +77,7 @@
             transition: background-color 0.3s;
         }
         input[type="submit"]:hover {
-            background-color: #02024e;
+            background-color: #000014;
         }
         textarea {
             width: calc(100% - 20px);
@@ -105,13 +106,8 @@
         <h2>Kompetenslexikon</h2>
         <p>Välj en kompetens som du vill veta mer om!</p>
 
-
-        <form action="/ai" method="post">
-
-
         <form action="/kompetenslexikon" method="post">
-            <label for="selected_competence"></label>
-
+            <label for="selected_competence">Välj en kompetens:</label>
             <select name="selected_competence" id="selected_competence">
                 {% for competence in all_competencies %}
                 <option value="{{ competence }}">{{ competence }}</option>
