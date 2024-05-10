@@ -10,6 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f9f9f9;
         }
         header {
             background-color: #000026;
@@ -31,11 +32,11 @@
             color: #fff;
             text-decoration: none;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
             transition: color 0.3s;
         }
         header a:hover {
-            color: #ddd;
+            color: #fff;
         }
         h1 {
             text-align: center;
@@ -131,13 +132,13 @@
         <h2>10 Vanligaste kompetenserna för:</h2>
         <p>
             {% if request.form.occupation %}
-                Yrkesgrupp: {{ request.form.occupation }}
+                {{ request.form.occupation }}
             {% endif %}
             {% if request.form.municipality %}
-                Kommun: {{ request.form.municipality }}
+                 {{ request.form.municipality }}
             {% endif %}
             {% if request.form.years %}
-                År: {{ request.form.years }}
+                {{ request.form.years }}
             {% endif %}
         </p>
     </div>
