@@ -19,10 +19,12 @@ def generate_text(prompt):
     response = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "system", "content": "Du är en näringslivsexpert som förklarar kompetenser och fokuserar på dess användningsområden i samhället och hur den appliceras i organisationer."},
+        {"role": "system", "content": "Du är en näringslivsexpert som förklarar kompetenser och fokuserar på dess användningsområden i näringslivet och hur den appliceras i organisationer."},
         #{skriv en negativ prompt till systemet}
-        {"role": "user", "content": "Skriv en strukturerad text som först förklarar kompetensen " + prompt +" och sedan ber."},
-        {"role": "user", "content": "Ifall " + prompt + " består av flera kompetenser, förklara vikten av sambandet mellan dessa kompetenser."}
+        {"role": "user", "content": "Skriv en strukturerad text som först förklarar kompetensen " + prompt +"."},
+
+        {"role": "user", "content": "Förklara vilka andra kompetenser som ofta kombineras ihop med " + prompt + ". Förklara även vikten av sambandet mellan dessa kompetenser i arbetslivet."},
+        {"role": "user", "content": "Förklara kort vilka sorters utbildningar som lär ut kompetensen."}
     ]
     ) 
     answer = response.choices[0].message.content
