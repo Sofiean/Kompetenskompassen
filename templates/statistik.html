@@ -17,14 +17,14 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
-        .comfortaa-300> {
-        font-family: "Comfortaa", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: <700>;
-        font-style: normal;
+        .comfortaa-300 {
+            font-family: "Comfortaa", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700; /* corrected here */
+            font-style: normal;
         }
         
-        </style>
+    </style>
 
 
     <style>
@@ -137,21 +137,21 @@
     <form action="/statistik" method="post" id="filterForm">
         <select name="occupation" id="occupation">
             <option value="" disabled selected>Yrkesgrupp</option>
-            {% for occupation in occupation_options %}
+            {% for occupation in occupation_options|sort %}
             <option value="{{ occupation }}">{{ occupation }}</option>
             {% endfor %}
         </select>
 
         <select name="municipality" id="municipality">
             <option value="" disabled selected>Kommun</option>
-            {% for municipality in municipality_options %}
+            {% for municipality in municipality_options|sort %}
             <option value="{{ municipality }}">{{ municipality }}</option>
             {% endfor %}
         </select>
 
         <select name="years" id="years">
             <option value="" disabled selected>År</option>
-            {% for year in years_options %}
+            {% for year in years_options|sort %}
             <option value="{{ year }}">{{ year }}</option>
             {% endfor %}
         </select>
