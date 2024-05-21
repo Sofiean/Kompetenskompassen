@@ -1,6 +1,3 @@
-import pandas as pd
-import re
-
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -14,11 +11,12 @@ ghost = os.getenv("API_KEY")
 client = OpenAI(api_key=ghost)
 
 
-#Funktion Med AI
+# Function to generate text using OpenAI
 def generate_text(prompt):
-    response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
         {"role": "system", "content": "Du är en näringslivsexpert som förklarar kompetenser och fokuserar på dess användningsområden i näringslivet och hur den appliceras i organisationer."},
         {"role": "system", "content": "Du är pedagosisk och anger rubriker till varje stycke i en fetstilad text"},
         #{skriv en negativ prompt till systemet}
@@ -26,11 +24,12 @@ def generate_text(prompt):
 
         {"role": "user", "content": "Förklara vilka andra kompetenser som ofta kombineras ihop med " + prompt + ". Förklara även vikten av sambandet mellan dessa kompetenser i arbetslivet."},
         {"role": "user", "content": "Förklara kort vilka sorters utbildningar som lär ut kompetensen."}
-    ]
-    ) 
-    answer = response.choices[0].message.content
-    
-    return answer
+            ]
+        )
+        answer = response.choices[0].message.content
+        return answer
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
 
 
 """

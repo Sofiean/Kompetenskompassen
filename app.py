@@ -1,7 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 import pandas as pd
-
-import os
 from openaifunctions import config_api, generate_text
 
 app = Flask(__name__)
@@ -60,6 +58,7 @@ def statistik_page():
 def home_page():
     return render_template('home.html')
 
+
 # Route for the AI page
 @app.route('/kompetenslexikon', methods=['GET', 'POST'])
 def ai_page():
@@ -81,6 +80,3 @@ def ai_page():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
- 
