@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillGap</title>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -37,6 +36,10 @@
             margin-bottom: 30px;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
         header ul {
             list-style-type: none;
             padding: 0;
@@ -48,7 +51,7 @@
             margin-right: 20px;
         }
 
-        header a {
+       header a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
@@ -176,12 +179,14 @@
         .search-list-option:hover {
             background-color: #f0f0f0;
         }
+       
+            
 
     </style>
 </head>
 <body>
     <header>
-        <h1>SkillGap</h1>
+        <img src="{{ url_for('static', filename='KKlogo.png') }}" alt="SkillGap">
         <nav>
             <ul>
                 <div class="button-container">
@@ -218,18 +223,18 @@
         {% endif %}
     </section>
 
-       <!-- JavaScript function -->
-       <script>
+    <!-- JavaScript function -->
+    <script>
         function showLoading() {
             document.getElementById("loadingIndicator").style.display = "block";
         }
-    
+
         document.addEventListener('DOMContentLoaded', function() {
             const competenceSearch = document.getElementById('competenceSearch');
             const competenceSearchList = document.getElementById('competenceSearchList');
             const competenceOptions = document.getElementById('selected_competence').options;
             const selectedCompetence = document.getElementById('selected_competence');
-    
+
             competenceSearch.addEventListener('input', function() {
                 competenceSearchList.innerHTML = ''; // Clear previous results
                 const searchValue = this.value.toLowerCase();
@@ -248,23 +253,22 @@
                 }
                 competenceSearchList.style.display = 'block';
             });
-    
+
             // Close search list on clicking outside
             document.addEventListener('click', function(event) {
                 if (!event.target.matches('.search-box')) {
                     competenceSearchList.style.display = 'none';
                 }
             });
-    
+
             document.querySelector('form').addEventListener('submit', function() {
                 selectedCompetence.value = competenceSearch.value;
             });
-    
+
             selectedCompetence.addEventListener('change', function() {
                 competenceSearch.value = selectedCompetence.value;
             });
         });
-        </script>
-    </body>
-    </html>
-    
+    </script>
+</body>
+</html>
