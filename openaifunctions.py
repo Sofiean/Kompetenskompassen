@@ -18,7 +18,7 @@ def generate_text(prompt):
             model="gpt-3.5-turbo",
             messages=[
         {"role": "system", "content": "Du är en näringslivsexpert som förklarar kompetenser och fokuserar på dess användningsområden i näringslivet och hur den appliceras i organisationer."},
-        {"role": "system", "content": "Du är pedagosisk och anger rubriker till varje stycke i en fetstilad text"},
+        {"role": "system", "content": "Du är pedagosisk och anger rubriker till varje stycke i versaler och skriv inte med några asterix tecken."},
         #{skriv en negativ prompt till systemet}
         {"role": "user", "content": "Skriv en strukturerad text som först förklarar kompetensen " + prompt +"."},
 
