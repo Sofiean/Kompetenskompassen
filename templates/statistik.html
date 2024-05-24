@@ -40,15 +40,26 @@
             text-align: center;
             margin-bottom: 30px;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            min-height: 80px;
+            display:flex;
+
+        }
+        header img {
+            max-width: 300px; /* Anpassa bredden efter dina behov */
+            max-height: 200px; /* Anpassa höjden efter dina behov */
+            float: left; /* Placera bilden längst till vänster */
         }
         header ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            margin-top: 50px;
+            margin-left: auto;
         }
         header li {
             display: inline;
-            margin-right: 20px;
+            margin-left: 100px;
+            margin-right: 40px;
         }
         header a {
             color: #fff;
@@ -57,6 +68,7 @@
             font-family: Roboto;
             font-size: 18px;
             transition: color 0.3s;
+            margin-right: 50px;
         }
         header a:hover {
             color: #fff;
@@ -70,11 +82,11 @@
         }
 
         .button-container {
-            text-align: center;
+            text-align: left;
             margin-top: 5px;
         }
         .button-container a {
-            margin: 0 40px; /* Justera avståndet mellan knapparna efter behov */
+            margin-left: 100px; /* Justera avståndet mellan knapparna efter behov */
         }
 
         h2 {
@@ -165,7 +177,7 @@
     
     {% if top_skills %}
     <div class="filters">
-        <h2>10 Vanligaste kompetenserna för:</h2>
+        <h2>10 mest efterfrågade kompetenserna för:</h2>
         <p>
             {% if request.form.occupation %}
                 {{ request.form.occupation }}
