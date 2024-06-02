@@ -12,12 +12,13 @@ Vi hämtar jobbdata från jobtech och skapar CSVfiler.
 
 Moduler: 
 
-För att installera nödvändiga moduler skriv pip install -r requirements.txt
-
 pip install --upgrade openai
 pip install python-dotenv
 pip install flask
 pip install pandas
+För att installera alla moduler skriv pip install -r requirements.txt
+
+
 
 
 API-nyckel:
