@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import pandas as pd
 from openaifunctions import config_api, generate_text
+import os
 
 app = Flask(__name__)
 
@@ -8,10 +9,14 @@ app = Flask(__name__)
 config_api()
 
 
+# Get the absolute path to the CSV files directory
+csv_dir = os.path.join(os.path.dirname(__file__), 'CSVfiler')
+
 # Load CSV files into a dictionary
 csv_files = {}
 for year in range(2018, 2023):
-    csv_files[str(year)] = pd.read_csv(f'CSVfiler/skills_by_occupation_update{year}.csv')
+    file_path = os.path.join(csv_dir, f'skills_by_occupation_update{year}.csv')
+    csv_files[str(year)] = pd.read_csv(file_path)
 
 # Get unique values for occupation, municipality, and years
 all_occupations = set()
