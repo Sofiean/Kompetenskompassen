@@ -5,7 +5,7 @@ Vi har gjort applikationen KompetensKompassen som tillåter kommuner att  enkelt
 Klicka på länken för att utforska våran app. http://kompetenskompassen.pythonanywhere.com/
 
 
-Beskrivning av kod:
+**Beskrivning av kod:**
 
 Applikationen är kodad med flask ramverket i python och använder även html samt javascript. Vi hämtar även en API-nyckel från OpenAI som ligger i en .env fil.
 App.py hämtar OpenAI chatgpt 3.5 baserade funktionen "generate_text" och funktionen "config_api" från openaifuntions.py
